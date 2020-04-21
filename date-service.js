@@ -1,4 +1,4 @@
-import { EventEmitter } from './core/event-emitter.js';
+import { EventEmitter } from './event-emitter.js';
 import { config } from './config.js';
 
 class DateService extends EventEmitter {
@@ -34,6 +34,7 @@ class DateService extends EventEmitter {
     _updateDate() {
         const oldDate = new Date(this._date);
         this._date.setSeconds(this._date.getSeconds() + config.refreshInterval);
+        this._date = new Date(this._date);
         if (oldDate.getMonth() !== this._date.getMonth()) {
             this.emit(this.MONTH_CHANGED, this._date);
         }
@@ -44,3 +45,5 @@ class DateService extends EventEmitter {
     }
 }
 export const dateService = new DateService(new Date());
+dateService.start();
+//TO DO , eliminar la linea de arriba
