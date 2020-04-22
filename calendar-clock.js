@@ -11,25 +11,25 @@ class XCalendarClock extends LitElement {
             date: { type: Object }
         };
     }
-constructor() { 
-    super();
-    this.date = dateService.date;
-}
-//cada segundo hace un callback para actualizar los segundos
+    constructor() {
+        super();
+        this.date = dateService.date;
+    }
+    //cada segundo hace un callback para actualizar los segundos
     connectedCallback() {
         super.connectedCallback();
         dateService.on(dateService.SECOND_CHANGED, this._onSecondChanged);
     }
-// disconnected salta cuando se elimina el componente
+    // disconnected salta cuando se elimina el componente
     disconnectedCallback() {
         super.disconnectedCallback();
         dateService.off(dateService.SECOND_CHANGED, this._onSecondChanged);
     }
-//pasa textcontent a timestring
+    //pasa textcontent a timestring
     _onSecondChanged = (newDate) => {
         this.date = newDate;
     }
-//devuelve timestring con id text
+    //devuelve timestring con id text
     render() {
         return html`
             <p class="x-clock">${DateFormatter.timeString(this.date)}</p>

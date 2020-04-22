@@ -7,11 +7,11 @@
 </head>
 <body>
     <h1>Test de componentes</h1>
-    <x-calendar-clock id="component"></x-calendar-clock>
-    <script src="reloj.js" type="module"></script>
+    <x-calendar-date></x-calendar-date>
+
+    <script src="x-calendar-date.js" type="module"></script>
     <script>
         const component = document.getElementById('component');
-   component.addEventListener("previous",function (){window.alert("previous")});
    </script>
 </body>
 </html>
