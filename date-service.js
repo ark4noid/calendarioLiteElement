@@ -44,5 +44,3 @@ class DateService extends EventEmitter {
     }
 }
 export const dateService = new DateService(new Date());
-dateService.start();
-//TO DO , eliminar la linea de arriba

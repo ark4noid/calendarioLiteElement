@@ -8,6 +8,5 @@ class XCalendarHeader extends LitElement{
             <x-calendar-date></x-calendar-date>
         `;
     }
-
 }
 customElements.define('x-calendar-header', XCalendarHeader); 
